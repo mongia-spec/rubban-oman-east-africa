@@ -381,11 +381,8 @@ input,textarea,select{font-family:inherit;font-size:inherit}
 .confetti{position:fixed;inset:0;pointer-events:none;z-index:90}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
-.mcred{position:fixed;left:12px;bottom:70px;z-index:90;display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#0E7C7B,#1F5B3A);color:#fff!important;text-decoration:none;border-radius:999px;padding:6px 14px 6px 8px;font:700 15px/1.2 AlmaraiW,sans-serif;box-shadow:0 4px 14px rgba(0,0,0,.25);border:2px solid #E9C46A}
-.mcred .ic{width:26px;height:26px;border-radius:50%;background:#fff;display:grid;place-items:center}
-.mcred small{display:block;font-weight:400;font-size:11px;opacity:.9}
-.homecred{margin:18px auto 6px;max-width:900px;text-align:center;background:#FBF6EA;border:2px solid #E9C46A;border-radius:18px;padding:14px 18px;font-size:19px;color:#1F5B3A}
-.homecred a{color:#0E7C7B;font-weight:800;text-decoration:none;border-bottom:2px dotted #0E7C7B}
+.mcred{position:fixed;left:8px;bottom:62px;z-index:90;color:#6b5a3a!important;text-decoration:none;font:400 11px/1.2 AlmaraiW,sans-serif;opacity:.28;transition:opacity .3s;background:none;padding:2px 4px}
+.mcred:hover{opacity:.85}
 @media print{body::after{content:"© منجية عادل – @ostatha.mongia";position:fixed;bottom:4mm;left:0;right:0;text-align:center;font-size:10pt;color:#555}}
 </style>
 
@@ -823,7 +820,6 @@ const R={};
 R.home=st=>{
   const h=el('div',{class:'hero',style:'background-image:url('+img('banner')+')'},'<div class="title"><h1>العُمانيون في شرقي أفريقيا</h1><p>(«سجلّ الربّان المفقود»)</p><small>الدراسات الاجتماعية • الصف التاسع • حصة ٦٠ دقيقة</small><small>المعلمة: عامرة بنت ناصر بن محمد السّعديّة</small></div>');
   st.appendChild(h);
-  setTimeout(()=>st.appendChild(el('div',{class:'homecred'},'✨ فكرة المنصة وتصميمها وإعدادها: <a href="https://www.instagram.com/ostatha.mongia/" target="_blank" rel="noopener">الأستاذة منجية عادل</a> – معلمة وخبيرة تربوية في التعليم والذكاء الاصطناعي<br><small>© ٢٠٢٦ جميع الحقوق محفوظة – يُسمح باستخدامها في التدريس مع ذكر المصدر</small>')),0);
   const g=el('div',{class:'homegrid'});
   const cards=[['main','⚓ ابدئي الرحلة','أهداف الرحلة ثم المحطات بالترتيب','goals'],['','👩‍🏫 دليل المعلمة الكامل','ماذا تقولين وتفعلين في كل محطة','guidedoc'],['','🏆 العملات الذهبية','تصفير النقاط قبل الحصة','reset']];
   cards.forEach(([c,t,s,k])=>{const b=el('button',{class:'hcard '+c},'<b>'+t+'</b><span>'+s+'</span>');b.onclick=()=>{if(k==='reset'){coins=[0,0,0,0,0,0];racePos=[0,0,0,0,0,0];opened=[0,0,0,0,0,0];truthCounts=TRUTHS.map(()=>({b:'',a:''}));['coins','race','opened','truth','hyp','visited'].forEach(x=>store.set(x,null));visited={};renderTreasury();renderRail();b.querySelector('span').textContent='تمّ التصفير ✔';return;}go(k)};g.appendChild(b);});
@@ -1145,7 +1141,7 @@ const h=(location.hash||'').slice(1);go(R[h]?h:'home');
 (function(){var IG="https://www.instagram.com/ostatha.mongia/";
 var svg='<svg width="16" height="16" viewBox="0 0 24 24"><defs><linearGradient id="igg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#F58529"/><stop offset=".5" stop-color="#DD2A7B"/><stop offset="1" stop-color="#8134AF"/></linearGradient></defs><rect x="2" y="2" width="20" height="20" rx="6" fill="url(#igg)"/><circle cx="12" cy="12" r="4.5" fill="none" stroke="#fff" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.3" fill="#fff"/></svg>';
 function badge(){if(document.getElementById("mcred"))return;var a=document.createElement("a");a.id="mcred";a.className="mcred";a.href=IG;a.target="_blank";a.rel="noopener";a.title="الأستاذة منجية عادل على إنستغرام";
-a.innerHTML='<span class="ic">'+svg+'</span><span>إعداد: أ. منجية عادل<small>@ostatha.mongia</small></span>';document.body.appendChild(a);}
+a.textContent='© منجية عادل';document.body.appendChild(a);}
 badge();new MutationObserver(badge).observe(document.body,{childList:true});
 try{console.log("%c سجلّ الربّان المفقود – فكرة وتصميم وإعداد: الأستاذة منجية عادل – "+IG,"color:#0E7C7B;font-weight:bold");}catch(e){}
 })();
