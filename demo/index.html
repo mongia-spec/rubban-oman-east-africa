@@ -1,10 +1,17 @@
 <meta charset="utf-8">
 <meta name="robots" content="noindex,nofollow">
 <script>
-(function(){var END=Date.parse('2026-11-17T17:45:00Z');
+(function(){var END=Date.parse('2026-11-16T19:45:00Z');
 function chk(){if(Date.now()>=END){location.replace('expired.html');return true}return false}
-if(!chk())setInterval(chk,60000);})();
+if(!chk())setInterval(chk,30000);
+var stop=function(e){e.preventDefault();e.stopPropagation();return false};
+['contextmenu','dragstart','selectstart','copy','cut'].forEach(function(t){document.addEventListener(t,function(e){var g=e.target;if(t==='selectstart'&&g&&(g.tagName==='TEXTAREA'||g.tagName==='INPUT'))return;stop(e)},true)});
+document.addEventListener('keydown',function(e){var k=(e.key||'').toLowerCase();var m=e.ctrlKey||e.metaKey;
+if(k==='f12'||(m&&['s','u','p','c','a'].indexOf(k)>=0&&!(document.activeElement&&/TEXTAREA|INPUT/.test(document.activeElement.tagName)&&k!=='s'&&k!=='u'&&k!=='p'))||(m&&e.shiftKey&&['i','j','c'].indexOf(k)>=0))stop(e)},true);
+new MutationObserver(function(){document.querySelectorAll('video:not([data-nd])').forEach(function(v){v.setAttribute('controlsList','nodownload noplaybackrate');v.setAttribute('disablePictureInPicture','');v.setAttribute('data-nd','1')})}).observe(document.documentElement,{childList:true,subtree:true});
+})();
 </script>
+<style>body{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}img,video{-webkit-user-drag:none;pointer-events:auto}textarea,input{-webkit-user-select:text;user-select:text}@media print{html,body{display:none!important}}</style>
 <title>نسخة عرض – سجلّ الربّان المفقود – منصة تفاعلية من إعداد الأستاذة منجية عادل</title>
 <meta name="author" content="منجية عادل – Mongia Adel (@ostatha.mongia)">
 <meta name="copyright" content="© 2026 منجية عادل – جميع الحقوق محفوظة">
